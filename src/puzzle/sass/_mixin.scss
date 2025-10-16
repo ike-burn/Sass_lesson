@@ -1,0 +1,22 @@
+@mixin header__box($color) {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  background-color: $color;
+}
+
+@mixin size($width, $height) {
+  width:$width;
+  height:$height;
+}
+
+@mixin boxOuter() {
+  background-color: white;
+  width: 140px;
+  padding: 5px;
+}
+
+@mixin boxInner($color, $width:140px, $height:40px) {
+  @include size($width, $height);
+  background-color: $color;
+}
