@@ -1,0 +1,55 @@
+@use 'variable' as var;
+@use 'mixin' as mix;
+
+.header {
+  background-color: var.$navy;
+  @include mix.size(400px, 100px);
+  position: relative;
+    &__inner{
+      position: absolute;
+      background-color: var.$white;
+      padding: 10px;
+      gap: 10px;
+      display: flex;
+      top:20px;
+      right:20px;
+        .header__box {
+          @each $colorName, $color in var.$box-colors {
+            &--#{$colorName} {
+            @include mix.header__box($color);
+            }
+          }
+        }
+    }
+}
+
+.content {
+  display: flex;
+  .sidebar {
+    background-color: var.$green;
+    @include mix.size(150px, 250px);
+  }
+
+  .main {
+    background-color: var.$red;
+    @include mix.size(250px, 250px);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 40px 0 0 40px;
+    box-sizing: border-box;
+    &__box {
+      @include mix.boxOuter();
+      @each $colorName, $color in var.$box-colors {
+        &--#{$colorName} {
+          @include mix.boxInner($color);
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  background-color: var.$brown;
+  @include mix.size(400px, 100px);
+}
