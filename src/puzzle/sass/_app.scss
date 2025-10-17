@@ -13,14 +13,15 @@
       display: flex;
       top:20px;
       right:20px;
-        .header__box {
-          @each $colorName, $color in var.$box-colors {
-            &--#{$colorName} {
-            @include mix.header__box($color);
-            }
-          }
-        }
-    }
+		}
+
+		&__box {
+			@each $colorName, $color in var.$box-colors {
+				&--#{$colorName} {
+				@include mix.header__box($color);
+				}
+			}
+		}
 }
 
 .content {
