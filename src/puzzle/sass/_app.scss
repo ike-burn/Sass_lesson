@@ -26,29 +26,31 @@
 
 .content {
   display: flex;
-  .sidebar {
-    background-color: var.$green;
-    @include mix.size(150px, 250px);
-  }
-
-  .main {
-    background-color: var.$red;
-    @include mix.size(250px, 250px);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 40px 0 0 40px;
-    box-sizing: border-box;
-    &__box {
-      @include mix.boxOuter();
-      @each $colorName, $color in var.$box-colors {
-        &--#{$colorName} {
-          @include mix.boxInner($color);
-        }
-      }
-    }
-  }
 }
+
+.sidebar {
+	background-color: var.$green;
+	@include mix.size(150px, 250px);
+}
+
+.main {
+	background-color: var.$red;
+	@include mix.size(250px, 250px);
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 40px 0 0 40px;
+	box-sizing: border-box;
+	&__box {
+		@include mix.boxOuter();
+		@each $colorName, $color in var.$box-colors {
+			&--#{$colorName} {
+				@include mix.boxInner($color);
+			}
+		}
+	}
+}
+
 
 .footer {
   background-color: var.$brown;
